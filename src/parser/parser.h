@@ -17,7 +17,7 @@ char operation(List *tokens, TokenType sign) {
         Token *token = list_get(tokens, i);
         if(token->type == sign) {
             BinOp *bin_op = binop_init(list_get(tokens, i-1), list_get(tokens, i-1), sign);
-            
+
         }
     }
 }
@@ -31,10 +31,10 @@ void parser(List *tokens) {
     for (int i = 0; i < tokens->size; i++) {
         Token *token = list_get(tokens, i);
 
-        if (token->type == OPEN_BRACE) {
+        if (token->type == TYPE_OPEN_BRACE) {
             open++;
             open_index = i;
-        } else if (token->type == CLOSED_BRACE) {
+        } else if (token->type == TYPE_CLOSED_BRACE) {
             closed++;
             closed_index = i;
         }

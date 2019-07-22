@@ -8,7 +8,7 @@ int main() {
 
     for (int i = 0; i < tokens->size; i++) {
         Token *val = (Token *) list_get(tokens, i);
-        printf("%s", val->value);
+        printf("[%s]", val->value);
     }
 
     parser(tokens);

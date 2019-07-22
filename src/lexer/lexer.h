@@ -21,23 +21,23 @@ List *lexer(char *input) {
         if (!str_contains_char(input[i], signs)) {
             list_add(number, &input[i]);
         } else {
-            Token *number_token = token_init(list_to_str(number), INTEGER);
+            Token *number_token = token_init(list_to_str(number), TYPE_INTEGER);
             list_add(tokens, number_token);
 
             // TODO: Rewrite this
             TokenType token_type;
             if (input[i] == '+') {
-                token_type = PLUS;
+                token_type = TYPE_PLUS;
             } else if (input[i] == '-') {
-                token_type = MINUS;
+                token_type = TYPE_MINUS;
             } else if (input[i] == '*') {
-                token_type = STAR;
+                token_type = TYPE_STAR;
             } else if (input[i] == '/') {
-                token_type = SLASH;
+                token_type = TYPE_SLASH;
             } else if (input[i] == '(') {
-                token_type = OPEN_BRACE;
+                token_type = TYPE_OPEN_BRACE;
             } else if (input[i] == ')') {
-                token_type = CLOSED_BRACE;
+                token_type = TYPE_CLOSED_BRACE;
             } else {
                 exit(1);
             }

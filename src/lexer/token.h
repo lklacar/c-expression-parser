@@ -8,13 +8,13 @@
 #include <stdlib.h>
 
 typedef enum TokenType {
-    INTEGER,
-    OPEN_BRACE,
-    CLOSED_BRACE,
-    PLUS,
-    MINUS,
-    STAR,
-    SLASH
+    TYPE_INTEGER,
+    TYPE_OPEN_BRACE,
+    TYPE_CLOSED_BRACE,
+    TYPE_PLUS,
+    TYPE_MINUS,
+    TYPE_STAR,
+    TYPE_SLASH
 } TokenType;
 
 typedef struct Token {

@@ -46,19 +46,24 @@ void list_insert(List *list, void *value, int index) {
     list->tail = node;
 }
 
-void *list_get(List *list, int index) {
+ListNode *list_get_node(List *list, int index) {
     ListNode *current = list->head;
 
     int i = 0;
     while (current != NULL) {
         if (i == index) {
-            return current->value;
+            return current;
         }
         i++;
         current = current->next;
     }
 
     return NULL;
+}
+
+void *list_get(List *list, int index) {
+    ListNode *current = list_get_node(list, index);
+    return current->value;
 }
 
 void list_add(List *list, void *value) {

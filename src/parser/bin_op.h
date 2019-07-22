@@ -11,10 +11,10 @@
 typedef struct BinOp {
     void *left;
     void *right;
-    Operation op;
+    TokenType op;
 } BinOp;
 
-BinOp *binop_init(void *left, void *right, Operation op) {
+BinOp *binop_init(void *left, void *right, TokenType op) {
     BinOp *binop = malloc(sizeof(BinOp));
     binop->left = left;
     binop->right = right;

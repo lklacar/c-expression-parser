@@ -24,7 +24,7 @@ List *lexer(char *input) {
             Token *number_token = token_init(list_to_str(number), INTEGER);
             list_add(tokens, number_token);
 
-
+            // TODO: Rewrite this
             TokenType token_type;
             if (input[i] == '+') {
                 token_type = PLUS;

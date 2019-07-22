@@ -8,6 +8,7 @@
 
 #include "../util/linked_list.h"
 #include "../util/string_util.h"
+#include "token.h"
 #include <string.h>
 
 
@@ -20,8 +21,29 @@ List *lexer(char *input) {
         if (!str_contains_char(input[i], signs)) {
             list_add(number, &input[i]);
         } else {
-            list_add(tokens, list_to_str(number));
-            list_add(tokens, &input[i]);
+            Token *number_token = token_init(list_to_str(number), INTEGER);
+            list_add(tokens, number_token);
+
+
+            TokenType token_type;
+            if (input[i] == '+') {
+                token_type = PLUS;
+            } else if (input[i] == '-') {
+                token_type = MINUS;
+            } else if (input[i] == '*') {
+                token_type = STAR;
+            } else if (input[i] == '/') {
+                token_type = SLASH;
+            } else if (input[i] == '(') {
+                token_type = OPEN_BRACE;
+            } else if (input[i] == ')') {
+                token_type = CLOSED_BRACE;
+            } else {
+                exit(1);
+            }
+
+            Token *operation_token = token_init(&input[i], token_type);
+            list_add(tokens, operation_token);
 
             // TODO: Free list
             number = list_init();
